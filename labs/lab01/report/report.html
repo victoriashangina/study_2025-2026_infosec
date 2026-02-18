@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru-RU" xml:lang="ru-RU">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Шангина Виктория Андреевна" />
+  <title>Отчёт по лабораторной работе №1</title>
+  <style>
+    html {
+      font-family: PT Serif;
+      font-size: 12pt;
+      line-height: 1.5;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: PT Mono;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  
+  
+  
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Отчёт по лабораторной работе №1</h1>
+<p class="subtitle">Дисциплина: Основы информационной безопасности</p>
+<p class="author">Шангина Виктория Андреевна</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<h2 id="toc-title">Содержание</h2>
+
+</nav>
+<h1 id="цель-работы">Цель работы</h1>
+<p>Целью данной работы является приобретение практических навыков
+установки операционной системы на виртуальную машину, настройки
+минимально необходимых для дальнейшей работы сервисов.</p>
+<h1 id="выполнение-лабораторной-работы">Выполнение лабораторной
+работы</h1>
+<h2 id="создание-виртуальной-машины">Создание виртуальной машины</h2>
+<p>Скачиваем Rocky Linux (рис. <span class="citation"
+data-cites="fig:001">[-@fig:001]</span>)</p>
+<figure id="fig:001">
+<img src="image/fig001.png" style="width:70.0%"
+alt="Установка Rocky Linux с сайта" />
+<figcaption aria-hidden="true">Установка Rocky Linux с
+сайта</figcaption>
+</figure>
+<p>Открываем VirtualBox и создаём новую виртуальную машину</p>
+<p>Указываем имя виртуальной машины, определяем тип операционной системы
+и указываем путь к iso-образу (рис. <span class="citation"
+data-cites="fig:002">[-@fig:002]</span>)</p>
+<figure id="fig:002">
+<img src="image/fig002.png" style="width:70.0%"
+alt="Создание виртуальной машины (1)" />
+<figcaption aria-hidden="true">Создание виртуальной машины
+(1)</figcaption>
+</figure>
+<p>Далее указываем размер оперативной памяти виртуальной машины - 4096
+МБ и число процессоров - 2 (рис. <span class="citation"
+data-cites="fig:003">[-@fig:003]</span>)</p>
+<figure id="fig:003">
+<img src="image/fig003.png" style="width:70.0%"
+alt="Создание виртуальной машины (2)" />
+<figcaption aria-hidden="true">Создание виртуальной машины
+(2)</figcaption>
+</figure>
+<p>Задаём размер виртуального жёсткого диска - 40 ГБ (рис. <span
+class="citation" data-cites="fig:004">[-@fig:004]</span>)</p>
+<figure id="fig:004">
+<img src="image/fig004.png" style="width:70.0%"
+alt="Создание виртуалтной машины (3)" />
+<figcaption aria-hidden="true">Создание виртуалтной машины
+(3)</figcaption>
+</figure>
+<p>Далее запускаем виртуальную машину (рис. <span class="citation"
+data-cites="fig:005">[-@fig:005]</span>)</p>
+<figure id="fig:005">
+<img src="image/fig005.png" style="width:70.0%"
+alt="Запуск виртуальной машины" />
+<figcaption aria-hidden="true">Запуск виртуальной машины</figcaption>
+</figure>
+<h2 id="установка-операционной-системы">Установка операционной
+системы</h2>
+<p>После запуска устанавливаем английский язык интерфейса (рис. <span
+class="citation" data-cites="fig:006">[-@fig:006]</span>)</p>
+<figure id="fig:006">
+<img src="image/fig006.png" style="width:70.0%"
+alt="Язык интерфейса - английский" />
+<figcaption aria-hidden="true">Язык интерфейса - английский</figcaption>
+</figure>
+<p>Добавляем русскую раскладку клавиатуры (рис. <span class="citation"
+data-cites="fig:007">[-@fig:007]</span>)</p>
+<figure id="fig:007">
+<img src="image/fig007.png" style="width:70.0%"
+alt="Настройка раскладки клавиатуры" />
+<figcaption aria-hidden="true">Настройка раскладки
+клавиатуры</figcaption>
+</figure>
+<p>Скорректируем часовой пояс (рис. <span class="citation"
+data-cites="fig:008">[-@fig:008]</span>)</p>
+<figure id="fig:008">
+<img src="image/fig008.png" style="width:70.0%"
+alt="Настройка часового пояса" />
+<figcaption aria-hidden="true">Настройка часового пояса</figcaption>
+</figure>
+<p>В разделе выбора программ указываем в качестве базового окружения
+Server with GUI, а в качестве дополнения — Development Tools (рис. <span
+class="citation" data-cites="fig:009">[-@fig:009]</span>)</p>
+<figure id="fig:009">
+<img src="image/fig009.png" style="width:70.0%"
+alt="Раздел выбора программ" />
+<figcaption aria-hidden="true">Раздел выбора программ</figcaption>
+</figure>
+<p>Далее отключаем KDUMP, а место установки ОС оставляем без изменения
+(рис. <span class="citation" data-cites="fig:010">[-@fig:010]</span>),
+(рис. <span class="citation"
+data-cites="fig:011">[-@fig:011]</span>)</p>
+<figure id="fig:010">
+<img src="image/fig010.png" style="width:70.0%"
+alt="Место установки ОС" />
+<figcaption aria-hidden="true">Место установки ОС</figcaption>
+</figure>
+<figure id="fig:011">
+<img src="image/fig011.png" style="width:70.0%"
+alt="Отключение KDUMP" />
+<figcaption aria-hidden="true">Отключение KDUMP</figcaption>
+</figure>
+<p>Включаем сетевое соединение и в качестве имени узла указываем
+user.localdomain, где вместо user имя нашего пользователя в соответствии
+с соглашением об именовании (рис. <span class="citation"
+data-cites="fig:012">[-@fig:012]</span>)</p>
+<figure id="fig:012">
+<img src="image/fig012.png" style="width:70.0%"
+alt="Сетевое соединение" />
+<figcaption aria-hidden="true">Сетевое соединение</figcaption>
+</figure>
+<p>Устанавливаем пароль для root, разрешение на ввод пароля для root при
+использовании SSH (рис. <span class="citation"
+data-cites="fig:013">[-@fig:013]</span>)</p>
+<figure id="fig:013">
+<img src="image/fig013.png" style="width:70.0%" alt="Пароль для root" />
+<figcaption aria-hidden="true">Пароль для root</figcaption>
+</figure>
+<p>Затем задаём локального пользователя с правами администратора и
+пароль для него (рис. <span class="citation"
+data-cites="fig:014">[-@fig:014]</span>)</p>
+<figure id="fig:014">
+<img src="image/fig014.png" style="width:70.0%"
+alt="Создание пользователя" />
+<figcaption aria-hidden="true">Создание пользователя</figcaption>
+</figure>
+<p>Начинаем установку операционной системы (рис. <span class="citation"
+data-cites="fig:015">[-@fig:015]</span>), (рис. <span class="citation"
+data-cites="fig:016">[-@fig:016]</span>)</p>
+<figure id="fig:015">
+<img src="image/fig015.png" style="width:70.0%"
+alt="Выставленные настройки" />
+<figcaption aria-hidden="true">Выставленные настройки</figcaption>
+</figure>
+<figure id="fig:016">
+<img src="image/fig016.png" style="width:70.0%" alt="Установка ОС" />
+<figcaption aria-hidden="true">Установка ОС</figcaption>
+</figure>
+<h2 id="после-установки">После установки</h2>
+<p>После установки ОС и перезапуска ВМ входим в ОС под заданной нами при
+установке учётной записью (рис. <span class="citation"
+data-cites="fig:017">[-@fig:017]</span>)</p>
+<figure id="fig:017">
+<img src="image/fig017.png" style="width:70.0%"
+alt="Вход в учётную запись" />
+<figcaption aria-hidden="true">Вход в учётную запись</figcaption>
+</figure>
+<p>Далее через терминал подключаем образ диска дополнений гостевой ОС:
+(рис. <span class="citation"
+data-cites="fig:018">[-@fig:018]</span>)</p>
+<ul>
+<li><p>заходим в пользователя root, с помощью <em>sudo -i</em></p></li>
+<li><p>переходим в каталог
+/run/media/имя_пользователя/VBox_GAs_версия/</p></li>
+<li><p>запускаем Rocky-10-1-aarch64-dvd/ (так как я работаю на
+MacOS)</p></li>
+</ul>
+<figure id="fig:018new">
+<img src="image/fig018new.png" style="width:70.0%"
+alt="Подключение образ диска дополнений гостевой ОС" />
+<figcaption aria-hidden="true">Подключение образ диска дополнений
+гостевой ОС</figcaption>
+</figure>
+<h2 id="установка-имени-пользователя-и-названия-хоста">Установка имени
+пользователя и названия хоста</h2>
+<p>При установке виртуальной машины мы задали имя пользователя и имя
+хоста, удовлетворяющее соглашению об именовании. На моей операционной
+системе MacOS не получилось запустить образ диска допослнений гостевой
+ОС, поэтому я пропускаю этот шаг.</p>
+<figure id="fig:021">
+<img src="image/fig021.png" style="width:70.0%"
+alt="Результат ошибки" />
+<figcaption aria-hidden="true">Результат ошибки</figcaption>
+</figure>
+<h1 id="домашнее-задание">Домашнее задание</h1>
+<p>В окне терминала проанализируем последовательность загрузки системы,
+выполнив команду <em>dmesg</em> (рис. <span class="citation"
+data-cites="fig:024">[-@fig:024]</span>)</p>
+<figure id="fig:024">
+<img src="image/fig024.png" style="width:70.0%" alt="Команда dmesg" />
+<figcaption aria-hidden="true">Команда dmesg</figcaption>
+</figure>
+<p>Далее посмотрим вывод этой команды с помошью <em>dmesg | grep -i ’
+’</em> (рис. <span class="citation"
+data-cites="fig:025">[-@fig:025]</span>), (рис. <span class="citation"
+data-cites="fig:026">[-@fig:026]</span>)</p>
+<figure id="fig:023">
+<img src="image/fig023.png" style="width:70.0%"
+alt="Команда dmesg | less (1)" />
+<figcaption aria-hidden="true">Команда dmesg | less (1)</figcaption>
+</figure>
+<figure id="fig:024">
+<img src="image/fig024.png" style="width:70.0%"
+alt="Команда dmesg | less (2)" />
+<figcaption aria-hidden="true">Команда dmesg | less (2)</figcaption>
+</figure>
+<p>Далее получаем следующую информацию:</p>
+<ol type="1">
+<li>Версия ядра Linux (Linux version) (рис. <span class="citation"
+data-cites="fig:025">[-@fig:025]</span>)</li>
+<li>Частота процессора (Detected Mhz processor) (рис. <span
+class="citation" data-cites="fig:026">[-@fig:026]</span>)</li>
+<li>Модель процессора (CPU0) (рис. <span class="citation"
+data-cites="fig:027">[-@fig:027]</span>)</li>
+<li>Объем доступной оперативной памяти (Memory available) (рис. <span
+class="citation" data-cites="fig:028">[-@fig:028]</span>)</li>
+<li>Тип обнаруженного гипервизора (Hypervisor detected) (рис. <span
+class="citation" data-cites="fig:029">[-@fig:029]</span>)</li>
+<li>Тип файловой системы корневого раздела (рис. <span class="citation"
+data-cites="fig:030">[-@fig:030]</span>)</li>
+<li>Последовательность монтирования файловых систем (рис. <span
+class="citation" data-cites="fig:031">[-@fig:031]</span>)</li>
+</ol>
+<figure id="fig:025">
+<img src="image/fig025.png" style="width:70.0%"
+alt="Версия ядра Linux" />
+<figcaption aria-hidden="true">Версия ядра Linux</figcaption>
+</figure>
+<figure id="fig:026">
+<img src="image/fig026.png" style="width:70.0%"
+alt="Частота процессора" />
+<figcaption aria-hidden="true">Частота процессора</figcaption>
+</figure>
+<figure id="fig:027">
+<img src="image/fig027.png" style="width:70.0%"
+alt="Модель процессора" />
+<figcaption aria-hidden="true">Модель процессора</figcaption>
+</figure>
+<figure id="fig:028">
+<img src="image/fig028.png" style="width:70.0%"
+alt="Объем доступной оперативной памяти" />
+<figcaption aria-hidden="true">Объем доступной оперативной
+памяти</figcaption>
+</figure>
+<figure id="fig:029">
+<img src="image/fig029.png" style="width:70.0%"
+alt="Тип обнаруженного гипервизора" />
+<figcaption aria-hidden="true">Тип обнаруженного
+гипервизора</figcaption>
+</figure>
+<figure id="fig:030">
+<img src="image/fig030.png" style="width:70.0%"
+alt="Тип файловой системы корневого раздела" />
+<figcaption aria-hidden="true">Тип файловой системы корневого
+раздела</figcaption>
+</figure>
+<figure id="fig:031">
+<img src="image/fig031.png" style="width:70.0%"
+alt="Последовательность монтирования файловых систем" />
+<figcaption aria-hidden="true">Последовательность монтирования файловых
+систем</figcaption>
+</figure>
+<h1 id="контрольные-вопросы-ответы">Контрольные вопросы + ответы</h1>
+<ol type="1">
+<li>Какую информацию содержит учётная запись пользователя?</li>
+</ol>
+<p>Учётная запись, как правило, содержит сведения, необходимые для
+опознания пользователя при подключении к системе, сведения для
+авторизации и учёта. Это идентификатор пользователя (login) и его
+пароль.</p>
+<ol start="2" type="1">
+<li>Укажите команды терминала и приведите примеры:</li>
+</ol>
+<ul>
+<li><p>для получения справки по команде используют
+<em>help</em></p></li>
+<li><p>для перемещения по файловой системе используют
+<em>cd</em></p></li>
+<li><p>для просмотра содержимого каталога используют
+<em>ls</em></p></li>
+<li><p>для определения объёма каталога используют <em>du</em></p></li>
+<li><p>для создания/удаления каталогов используют <em>mkdir/rmdir</em>,
+а для файлов <em>touch/rm</em></p></li>
+<li><p>для задания определённых прав на файл/каталог используют
+<em>chmod</em></p></li>
+<li><p>для просмотра истории команд используют <em>history</em></p></li>
+</ul>
+<ol start="3" type="1">
+<li>Что такое файловая система? Приведите примеры с краткой
+характеристикой.</li>
+</ol>
+<p>Файловая система (англ. file system) — порядок, определяющий способ
+организации, хранения и именования данных во внешней памяти, и
+обеспечивающий пользователю удобный интерфейс при работе с такими
+данными. Простыми словами файловая система - это система хранения файлов
+и организации каталогов. От файловой системы зависит, как файлы будут
+кодироваться, храниться на диске и читаться компьютером.</p>
+<p>Примеры:</p>
+<ul>
+<li><p>FAT (англ. File Allocation Table «таблица размещения файлов») —
+классическая архитектура файловой системы, которая из-за своей простоты
+всё ещё широко применяется для флеш-накопителей. Используется в
+дискетах, картах памяти и некоторых других носителях информации. Ранее
+находила применение и на жёстких дисках.</p></li>
+<li><p>NTFS (англ. new technology file system — «файловая система новой
+технологии») — стандартная файловая система для семейства операционных
+систем Windows NT фирмы Microsoft.</p></li>
+<li><p>Ext4 (англ. fourth extended file system, ext4fs) — журналируемая
+файловая система, используемая преимущественно в операционных системах с
+ядром Linux, созданная на базе ext3 в 2006 году.</p></li>
+</ul>
+<ol start="4" type="1">
+<li>Как посмотреть, какие файловые системы подмонтированы в ОС?</li>
+</ol>
+<p>Следует ввести команду df.</p>
+<ol start="5" type="1">
+<li>Как удалить зависший процесс?</li>
+</ol>
+<p>Чтобы удалить зависшй процесс, надо сначала узнать его PID с помощью
+команды <em>ps</em>. А после этого ввести <em>kill <PID процесса></em>.
+И всё готово!</p>
+<h1 id="выводы">Выводы</h1>
+<p>В ходе выполнения лабораторной работы мы приобрели практические
+навыки установки операционной системы на виртуальную машину, настройки
+минимально необходимых для дальнейшей работы сервисов.</p>
+<h1 id="список-литературы">Список литературы</h1>
+<ol type="1">
+<li>Лаборатораня работа №1 [Электронный ресурс] URL:
+https://esystem.rudn.ru/pluginfile.php/2580975/mod_folder/content/0/001-lab_virtualbox.pdf</li>
+<li>VirtualBox [Электронный ресурс] URL:
+https://www.virtualbox.org/wiki/Linux_Downloads</li>
+<li>Rocky Linux [Электронный ресурс] URL:
+https://rockylinux.org/ru-RU/download</li>
+</ol>
+</body>
+</html>
