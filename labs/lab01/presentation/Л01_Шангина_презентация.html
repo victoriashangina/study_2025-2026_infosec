@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Шангина Виктория Андреевна, НКАбд-04-24">
+  <title>Лабораторная работа №1</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/Madrid.css" id="theme">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Лабораторная работа №1</h1>
+  <p class="subtitle">Основы информационной безопасности</p>
+  <p class="author">Шангина Виктория Андреевна, НКАбд-04-24</p>
+  <p class="institute">Российский университет дружбы народов, Москва,
+Россия</p>
+  <p class="date">20 февраля 2026</p>
+</section>
+
+<section id="цель-работы" class="slide level1">
+<h1>Цель работы</h1>
+<p>Целью данной работы является приобретение практических навыков
+установки операционной системы на виртуальную машину, настройки
+минимально необходимых для дальнейшей работы сервисов.</p>
+</section>
+<section id="выполнение-лабораторной-работы" class="slide level1">
+<h1>Выполнение лабораторной работы</h1>
+<h2 id="создание-виртуальной-машины">Создание виртуальной машины</h2>
+<p>Скачиваем Rocky Linux</p>
+<figure>
+<img data-src="image/fig001.png" alt="Установка Rocky Linux с сайта" />
+<figcaption aria-hidden="true">Установка Rocky Linux с
+сайта</figcaption>
+</figure>
+<h2 id="создание-виртуальной-машины-1">Создание виртуальной машины</h2>
+<p>Открываем VirtualBox и создаём новую виртуальную машину</p>
+<p>Указываем имя виртуальной машины, определяем тип ОС и указываем путь
+к iso-образу</p>
+<figure>
+<img data-src="image/fig002.png"
+alt="Создание виртуальной машины (1)" />
+<figcaption aria-hidden="true">Создание виртуальной машины
+(1)</figcaption>
+</figure>
+<h2 id="создание-виртуальной-машины-2">Создание виртуальной машины</h2>
+<p>Далее указываем размер оперативной памяти - 4096 МБ и число
+процессоров - 2</p>
+<p>Задаём размер виртуального жёсткого диска - 20 ГБ</p>
+<h2 id="создание-виртуальной-машины-3">Создание виртуальной машины</h2>
+<p>Запускаем виртуальную машину</p>
+<figure>
+<img data-src="image/fig005.png" alt="Запуск виртуальной машины" />
+<figcaption aria-hidden="true">Запуск виртуальной машины</figcaption>
+</figure>
+<h2 id="установка-операционной-системы">Установка операционной
+системы</h2>
+<p>Устанавливаем английский язык интерфейса</p>
+<figure>
+<img data-src="image/fig006.png" alt="Язык интерфейса - английский" />
+<figcaption aria-hidden="true">Язык интерфейса - английский</figcaption>
+</figure>
+<h2 id="установка-операционной-системы-1">Установка операционной
+системы</h2>
+<p>Добавляем русскую раскладку клавиатуры</p>
+<figure>
+<img data-src="image/fig007.png" alt="Настройка раскладки клавиатуры" />
+<figcaption aria-hidden="true">Настройка раскладки
+клавиатуры</figcaption>
+</figure>
+<h2 id="установка-операционной-системы-2">Установка операционной
+системы</h2>
+<p>Скорректируем часовой пояс</p>
+<figure>
+<img data-src="image/fig008.png" alt="Настройка часового пояса" />
+<figcaption aria-hidden="true">Настройка часового пояса</figcaption>
+</figure>
+<h2 id="установка-операционной-системы-3">Установка операционной
+системы</h2>
+<p>Выбираем базовое окружение Server with GUI и дополнение Development
+Tools</p>
+<figure>
+<img data-src="image/fig009.png" alt="Раздел выбора программ" />
+<figcaption aria-hidden="true">Раздел выбора программ</figcaption>
+</figure>
+<h2 id="установка-операционной-системы-4">Установка операционной
+системы</h2>
+<p>Отключаем KDUMP, место установки ОС оставляем без изменения</p>
+<figure>
+<img data-src="image/fig010.png" alt="Место установки ОС" />
+<figcaption aria-hidden="true">Место установки ОС</figcaption>
+</figure>
+<h2 id="установка-операционной-системы-5">Установка операционной
+системы</h2>
+<p>Включаем сетевое соединение, имя узла - user.localdomain</p>
+<figure>
+<img data-src="image/fig012.png" alt="Сетевое соединение" />
+<figcaption aria-hidden="true">Сетевое соединение</figcaption>
+</figure>
+<h2 id="установка-операционной-системы-6">Установка операционной
+системы</h2>
+<p>Устанавливаем пароль для root</p>
+<figure>
+<img data-src="image/fig013.png" alt="Пароль для root" />
+<figcaption aria-hidden="true">Пароль для root</figcaption>
+</figure>
+<h2 id="установка-операционной-системы-7">Установка операционной
+системы</h2>
+<p>Создаём локального пользователя с правами администратора</p>
+<figure>
+<img data-src="image/fig014.png" alt="Создание пользователя" />
+<figcaption aria-hidden="true">Создание пользователя</figcaption>
+</figure>
+<h2 id="установка-операционной-системы-8">Установка операционной
+системы</h2>
+<p>Начинаем установку</p>
+<figure>
+<img data-src="image/fig015.png" alt="Выставленные настройки" />
+<figcaption aria-hidden="true">Выставленные настройки</figcaption>
+</figure>
+<h2 id="установка-операционной-системы-9">Установка операционной
+системы</h2>
+<p>Процесс установки</p>
+<figure>
+<img data-src="image/fig016.png" alt="Установка ОС" />
+<figcaption aria-hidden="true">Установка ОС</figcaption>
+</figure>
+<h2 id="после-установки">После установки</h2>
+<p>Вход в систему</p>
+<figure>
+<img data-src="image/fig017.png" alt="Вход в учётную запись" />
+<figcaption aria-hidden="true">Вход в учётную запись</figcaption>
+</figure>
+<h2 id="после-установки-1">После установки</h2>
+<p>Подключаем образ диска дополнений гостевой ОС</p>
+<figure>
+<img data-src="image/fig018new.png" alt="Подключение образа" />
+<figcaption aria-hidden="true">Подключение образа</figcaption>
+</figure>
+<h2 id="установка-имени-пользователя-и-хоста">Установка имени
+пользователя и хоста</h2>
+<p>На MacOS не получилось запустить образ диска дополнений</p>
+<figure>
+<img data-src="image/fig021.png" alt="Результат ошибки" />
+<figcaption aria-hidden="true">Результат ошибки</figcaption>
+</figure>
+</section>
+<section id="домашнее-задание" class="slide level1">
+<h1>Домашнее задание</h1>
+<h2 id="анализ-загрузки-системы">Анализ загрузки системы</h2>
+<p>Команда dmesg</p>
+<figure>
+<img data-src="image/fig024.png" alt="Команда dmesg" />
+<figcaption aria-hidden="true">Команда dmesg</figcaption>
+</figure>
+<h2 id="анализ-загрузки-системы-1">Анализ загрузки системы</h2>
+<p>Команда dmesg | less</p>
+<figure>
+<img data-src="image/fig023.png" alt="dmesg | less (1)" />
+<figcaption aria-hidden="true">dmesg | less (1)</figcaption>
+</figure>
+<figure>
+<img data-src="image/fig024.png" alt="dmesg | less (2)" />
+<figcaption aria-hidden="true">dmesg | less (2)</figcaption>
+</figure>
+<h2 id="информация-о-системе">Информация о системе</h2>
+<ol type="1">
+<li>Версия ядра Linux</li>
+<li>Частота процессора</li>
+<li>Модель процессора</li>
+<li>Объем оперативной памяти</li>
+<li>Тип гипервизора</li>
+<li>Тип файловой системы</li>
+<li>Последовательность монтирования</li>
+</ol>
+<h2 id="версия-ядра-linux">Версия ядра Linux</h2>
+<figure>
+<img data-src="image/fig025.png" alt="Версия ядра" />
+<figcaption aria-hidden="true">Версия ядра</figcaption>
+</figure>
+<h2 id="частота-процессора">Частота процессора</h2>
+<figure>
+<img data-src="image/fig026.png" alt="Частота процессора" />
+<figcaption aria-hidden="true">Частота процессора</figcaption>
+</figure>
+<h2 id="модель-процессора">Модель процессора</h2>
+<figure>
+<img data-src="image/fig027.png" alt="Модель процессора" />
+<figcaption aria-hidden="true">Модель процессора</figcaption>
+</figure>
+<h2 id="объем-оперативной-памяти">Объем оперативной памяти</h2>
+<figure>
+<img data-src="image/fig028.png" alt="Объем памяти" />
+<figcaption aria-hidden="true">Объем памяти</figcaption>
+</figure>
+<h2 id="тип-гипервизора">Тип гипервизора</h2>
+<figure>
+<img data-src="image/fig029.png" alt="Тип гипервизора" />
+<figcaption aria-hidden="true">Тип гипервизора</figcaption>
+</figure>
+<h2 id="тип-файловой-системы">Тип файловой системы</h2>
+<figure>
+<img data-src="image/fig030.png" alt="Тип ФС" />
+<figcaption aria-hidden="true">Тип ФС</figcaption>
+</figure>
+<h2 id="последовательность-монтирования">Последовательность
+монтирования</h2>
+<figure>
+<img data-src="image/fig031.png" alt="Монтирование" />
+<figcaption aria-hidden="true">Монтирование</figcaption>
+</figure>
+</section>
+<section id="контрольные-вопросы" class="slide level1">
+<h1>Контрольные вопросы</h1>
+<h2 id="вопрос-1">Вопрос 1</h2>
+<p><strong>Какую информацию содержит учётная запись
+пользователя?</strong></p>
+<p>Учётная запись содержит сведения для опознания пользователя,
+авторизации и учёта: идентификатор (login) и пароль.</p>
+<h2 id="вопрос-2">Вопрос 2</h2>
+<p><strong>Команды терминала:</strong></p>
+<ul>
+<li><em>help</em> - справка</li>
+<li><em>cd</em> - перемещение</li>
+<li><em>ls</em> - просмотр содержимого</li>
+<li><em>du</em> - объём каталога</li>
+<li><em>mkdir/rmdir</em> - создать/удалить каталог</li>
+<li><em>touch/rm</em> - создать/удалить файл</li>
+<li><em>chmod</em> - права доступа</li>
+<li><em>history</em> - история команд</li>
+</ul>
+<h2 id="вопрос-3">Вопрос 3</h2>
+<p><strong>Что такое файловая система?</strong></p>
+<p>Файловая система определяет способ организации, хранения и именования
+данных.</p>
+<p>Примеры: - <strong>FAT</strong> - для флеш-накопителей -
+<strong>NTFS</strong> - для Windows - <strong>Ext4</strong> - для
+Linux</p>
+<h2 id="вопрос-4-5">Вопрос 4-5</h2>
+<p><strong>4. Как посмотреть подмонтированные ФС?</strong></p>
+<p>Команда <em>df</em></p>
+<p><strong>5. Как удалить зависший процесс?</strong></p>
+<p>Узнать PID через <em>ps</em>, затем <em>kill <PID></em></p>
+</section>
+<section id="выводы" class="slide level1">
+<h1>Выводы</h1>
+<p>В ходе выполнения лабораторной работы приобрели практические навыки
+установки ОС на виртуальную машину и настройки необходимых сервисов.</p>
+</section>
+<section id="список-литературы" class="slide level1">
+<h1>Список литературы</h1>
+<ol type="1">
+<li>Лабораторная работа №1 [Электронный ресурс] URL:
+https://esystem.rudn.ru/pluginfile.php/2580975/mod_folder/content/0/001-lab_virtualbox.pdf</li>
+<li>VirtualBox [Электронный ресурс] URL:
+https://www.virtualbox.org/wiki/Linux_Downloads</li>
+<li>Rocky Linux [Электронный ресурс] URL:
+https://rockylinux.org/ru-RU/download</li>
+</ol>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
