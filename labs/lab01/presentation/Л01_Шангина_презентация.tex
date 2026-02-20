@@ -1,0 +1,771 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  ignorenonframetext,
+  aspectratio=169,
+]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolshorizontal
+% Prevent slide breaks in the middle of a paragraph
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+  \centering
+  \begin{beamercolorbox}[sep=16pt,center]{part title}
+    \usebeamerfont{part title}\insertpart\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center]{part title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center]{part title}
+    \usebeamerfont{subsection title}\insertsubsection\par
+  \end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\usetheme[]{Madrid}
+\usefonttheme{serif} % use mainfont rather than sansfont for slide text
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+    \setmainfont[]{DejaVu Serif}
+    \setsansfont[]{DejaVu Sans}
+    \setmonofont[]{DejaVu Sans Mono}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{xcolor}
+\newif\ifbibliography
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+\usepackage{caption}
+% Make caption package work with longtable
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\IfFileExists{plex-otf.sty}{
+  %% Full TeXlive
+  % \usepackage[%
+  %   % math,
+  %   RM={Scale=0.94},SS={Scale=0.94},SScon={Scale=0.94},TT={Scale=MatchLowercase,FakeStretch=0.9},DefaultFeatures={Ligatures=Common}
+  % ]{plex-otf}
+}{
+  %% TinyTeX
+  \usepackage{libertine}
+}
+
+%%% Load theme
+% https://deic.uab.cat/~iblanes/beamer_gallery/
+\IfFileExists{beamerthemegotham.sty}{
+  %% Full TeXlive
+  \usetheme{gotham}
+  \gothamset{
+    numbering=totalpagenumber,
+    parttocframe default=off,
+    sectiontocframe default=off,
+    subsectiontocframe default=off,
+  }
+}{
+  %% TinyTeX
+  \usetheme{Madrid}
+}
+\metroset{progressbar=frametitle,sectionpage=progressbar,numbering=fraction}
+\makeatletter
+\beamer@ignorenonframefalse
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Содержание}
+\else
+  \newcommand\contentsname{Содержание}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Список иллюстраций}
+\else
+  \newcommand\listfigurename{Список иллюстраций}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Список таблиц}
+\else
+  \newcommand\listtablename{Список таблиц}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Рисунок}
+\else
+  \newcommand\figurename{Рисунок}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Таблица}
+\else
+  \newcommand\tablename{Таблица}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Список}
+\newcommand*\listoflistings{\listof{codelisting}{Листинги}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{russian}
+\ifPDFTeX
+\else
+\babelfont{rm}[]{DejaVu Serif}
+\fi
+\babelprovide[import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{csquotes}
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Лабораторная работа №1},
+  pdfauthor={Шангина В. А., НКАбд-04-24},
+  pdflang={ru-RU},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Лабораторная работа №1}
+\subtitle{Основы информационной безопасности}
+\author{Шангина В. А., НКАбд-04-24}
+\date{Invalid Date}
+\institute{Российский университет дружбы народов, Москва, Россия}
+
+\begin{document}
+\frame{\titlepage}
+
+
+\section{1. Вводная
+часть}\label{ux432ux432ux43eux434ux43dux430ux44f-ux447ux430ux441ux442ux44c}
+
+\begin{frame}{1.1 Цель работы}
+\phantomsection\label{ux446ux435ux43bux44c-ux440ux430ux431ux43eux442ux44b}
+Целью данной работы является приобретение практических навыков установки
+операционной системы на виртуальную машину, настройки минимально
+необходимых для дальнейшей работы сервисов.
+\end{frame}
+
+\section{2. Выполнение лабораторной
+работы}\label{ux432ux44bux43fux43eux43bux43dux435ux43dux438ux435-ux43bux430ux431ux43eux440ux430ux442ux43eux440ux43dux43eux439-ux440ux430ux431ux43eux442ux44b}
+
+\begin{frame}{2.1 Создание виртуальной машины}
+\phantomsection\label{ux441ux43eux437ux434ux430ux43dux438ux435-ux432ux438ux440ux442ux443ux430ux43bux44cux43dux43eux439-ux43cux430ux448ux438ux43dux44b}
+Скачиваем Rocky Linux (рис. 1)
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\textwidth,height=\textheight]{image/fig001.png}
+
+}
+
+\caption{Установка Rocky Linux с сайта}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{2.2 Создание виртуальной машины}
+\phantomsection\label{ux441ux43eux437ux434ux430ux43dux438ux435-ux432ux438ux440ux442ux443ux430ux43bux44cux43dux43eux439-ux43cux430ux448ux438ux43dux44b-1}
+Открываем VirtualBox и создаём новую виртуальную машину
+
+Указываем имя виртуальной машины, определяем тип операционной системы и
+указываем путь к iso-образу.
+\end{frame}
+
+\begin{frame}{2.3 Создание виртуальной машины}
+\phantomsection\label{ux441ux43eux437ux434ux430ux43dux438ux435-ux432ux438ux440ux442ux443ux430ux43bux44cux43dux43eux439-ux43cux430ux448ux438ux43dux44b-2}
+Далее указываем размер оперативной памяти виртуальной машины - 4096 МБ и
+число процессоров - 2.
+\end{frame}
+
+\begin{frame}{2.4 Создание виртуальной машины}
+\phantomsection\label{ux441ux43eux437ux434ux430ux43dux438ux435-ux432ux438ux440ux442ux443ux430ux43bux44cux43dux43eux439-ux43cux430ux448ux438ux43dux44b-3}
+Задаём размер виртуального жёсткого диска - 20 ГБ.
+\end{frame}
+
+\begin{frame}{2.5 Создание виртуальной машины}
+\phantomsection\label{ux441ux43eux437ux434ux430ux43dux438ux435-ux432ux438ux440ux442ux443ux430ux43bux44cux43dux43eux439-ux43cux430ux448ux438ux43dux44b-4}
+Далее запускаем виртуальную машину (рис. 5)
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\textwidth,height=\textheight]{image/fig005.png}
+
+}
+
+\caption{Запуск виртуальной машины}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{2.6 Установка операционной системы}
+\phantomsection\label{ux443ux441ux442ux430ux43dux43eux432ux43aux430-ux43eux43fux435ux440ux430ux446ux438ux43eux43dux43dux43eux439-ux441ux438ux441ux442ux435ux43cux44b}
+После запуска устанавливаем английский язык интерфейса (рис. 6)
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.6\textwidth,height=\textheight]{image/fig006.png}
+
+}
+
+\caption{Язык интерфейса - английский}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{2.7 Установка операционной системы}
+\phantomsection\label{ux443ux441ux442ux430ux43dux43eux432ux43aux430-ux43eux43fux435ux440ux430ux446ux438ux43eux43dux43dux43eux439-ux441ux438ux441ux442ux435ux43cux44b-1}
+Добавляем русскую раскладку клавиатуры (рис. 7)
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.4\textwidth,height=\textheight]{image/fig007.png}
+
+}
+
+\caption{Настройка раскладки клавиатуры}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{2.8 Установка операционной системы}
+\phantomsection\label{ux443ux441ux442ux430ux43dux43eux432ux43aux430-ux43eux43fux435ux440ux430ux446ux438ux43eux43dux43dux43eux439-ux441ux438ux441ux442ux435ux43cux44b-2}
+Скорректируем часовой пояс (рис. 8)
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.3\textwidth,height=\textheight]{image/fig008.png}
+
+}
+
+\caption{Настройка часового пояса}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{2.9 Установка операционной системы}
+\phantomsection\label{ux443ux441ux442ux430ux43dux43eux432ux43aux430-ux43eux43fux435ux440ux430ux446ux438ux43eux43dux43dux43eux439-ux441ux438ux441ux442ux435ux43cux44b-3}
+В разделе выбора программ указываем в качестве базового окружения Server
+with GUI, а в качестве дополнения --- Development Tools (рис. 9)
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\textwidth,height=\textheight]{image/fig009.png}
+
+}
+
+\caption{Раздел выбора программ}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{2.10 Установка операционной системы}
+\phantomsection\label{ux443ux441ux442ux430ux43dux43eux432ux43aux430-ux43eux43fux435ux440ux430ux446ux438ux43eux43dux43dux43eux439-ux441ux438ux441ux442ux435ux43cux44b-4}
+Далее отключаем KDUMP, а место установки ОС оставляем без изменения
+(рис. 10), (рис. 11)
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.4\textwidth,height=\textheight]{image/fig010.png}
+
+}
+
+\caption{Место установки ОС}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{2.11 Установка операционной системы}
+\phantomsection\label{ux443ux441ux442ux430ux43dux43eux432ux43aux430-ux43eux43fux435ux440ux430ux446ux438ux43eux43dux43dux43eux439-ux441ux438ux441ux442ux435ux43cux44b-5}
+Включаем сетевое соединение и в качестве имени узла указываем
+user.localdomain, где вместо user имя нашего пользователя в соответствии
+с соглашением об именовании (рис. 12)
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.4\textwidth,height=\textheight]{image/fig012.png}
+
+}
+
+\caption{Сетевое соединение}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{2.12 Установка операционной системы}
+\phantomsection\label{ux443ux441ux442ux430ux43dux43eux432ux43aux430-ux43eux43fux435ux440ux430ux446ux438ux43eux43dux43dux43eux439-ux441ux438ux441ux442ux435ux43cux44b-6}
+Устанавливаем пароль для root, разрешение на ввод пароля для root при
+использовании SSH (рис. 13)
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\textwidth,height=\textheight]{image/fig013.png}
+
+}
+
+\caption{Пароль для root}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{2.13 Установка операционной системы}
+\phantomsection\label{ux443ux441ux442ux430ux43dux43eux432ux43aux430-ux43eux43fux435ux440ux430ux446ux438ux43eux43dux43dux43eux439-ux441ux438ux441ux442ux435ux43cux44b-7}
+Затем задаём локального пользователя с правами администратора и пароль
+для него (рис. 14)
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\textwidth,height=\textheight]{image/fig014.png}
+
+}
+
+\caption{Создание пользователя}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{2.14 Установка операционной системы}
+\phantomsection\label{ux443ux441ux442ux430ux43dux43eux432ux43aux430-ux43eux43fux435ux440ux430ux446ux438ux43eux43dux43dux43eux439-ux441ux438ux441ux442ux435ux43cux44b-8}
+Начинаем установку операционной системы (рис. 15), (рис. 16)
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.4\textwidth,height=\textheight]{image/fig015.png}
+
+}
+
+\caption{Выставленные настройки}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{2.15 Установка операционной системы}
+\phantomsection\label{ux443ux441ux442ux430ux43dux43eux432ux43aux430-ux43eux43fux435ux440ux430ux446ux438ux43eux43dux43dux43eux439-ux441ux438ux441ux442ux435ux43cux44b-9}
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\textwidth,height=\textheight]{image/fig016.png}
+
+}
+
+\caption{Установка ОС}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{2.16 После установки}
+\phantomsection\label{ux43fux43eux441ux43bux435-ux443ux441ux442ux430ux43dux43eux432ux43aux438}
+После установки ОС и перезапуска ВМ входим в ОС под заданной нами при
+установке учётной записью (рис. 17)
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.4\textwidth,height=\textheight]{image/fig017.png}
+
+}
+
+\caption{Вход в учётную запись}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{2.17 После установки}
+\phantomsection\label{ux43fux43eux441ux43bux435-ux443ux441ux442ux430ux43dux43eux432ux43aux438-1}
+Далее через терминал подключаем образ диска дополнений гостевой ОС:
+(рис. 18)
+
+\begin{itemize}[<+->]
+\item
+  заходим в пользователя root, с помощью \emph{sudo -i}
+\item
+  переходим в каталог /run/media/имя\_пользователя/VBox\_GAs\_версия/
+\item
+  запускаем Rocky-10-1-aarch64-dvd/ (так как я работаю на MacOS)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{2.18 После установки}
+\phantomsection\label{ux43fux43eux441ux43bux435-ux443ux441ux442ux430ux43dux43eux432ux43aux438-2}
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\textwidth,height=\textheight]{image/fig018new.png}
+
+}
+
+\caption{Подключение образ диска дополнений гостевой ОС}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{2.19 Установка имени пользователя и названия хоста}
+\phantomsection\label{ux443ux441ux442ux430ux43dux43eux432ux43aux430-ux438ux43cux435ux43dux438-ux43fux43eux43bux44cux437ux43eux432ux430ux442ux435ux43bux44f-ux438-ux43dux430ux437ux432ux430ux43dux438ux44f-ux445ux43eux441ux442ux430}
+При установке виртуальной машины мы задали имя пользователя и имя хоста,
+удовлетворяющее соглашению об именовании. На моей операционной системе
+MacOS не получилось запустить образ диска дополнений гостевой ОС,
+поэтому я пропускаю этот шаг.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\textwidth,height=\textheight]{image/fig021.png}
+
+}
+
+\caption{Результат ошибки}
+
+\end{figure}%
+\end{frame}
+
+\section{3. Домашнее
+задание}\label{ux434ux43eux43cux430ux448ux43dux435ux435-ux437ux430ux434ux430ux43dux438ux435}
+
+\begin{frame}{3.1 Домашнее задание}
+\phantomsection\label{ux434ux43eux43cux430ux448ux43dux435ux435-ux437ux430ux434ux430ux43dux438ux435-1}
+В окне терминала проанализируем последовательность загрузки системы,
+выполнив команду \emph{dmesg} (рис. 19)
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\textwidth,height=\textheight]{image/fig024.png}
+
+}
+
+\caption{Команда dmesg}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{3.2 Домашнее задание}
+\phantomsection\label{ux434ux43eux43cux430ux448ux43dux435ux435-ux437ux430ux434ux430ux43dux438ux435-2}
+Далее посмотрим вывод этой команды с помощью \emph{dmesg \textbar{}
+less} (рис. 20), (рис. 21)
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\textwidth,height=\textheight]{image/fig023.png}
+
+}
+
+\caption{Команда dmesg \textbar{} less (1)}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{3.3 Домашнее задание}
+\phantomsection\label{ux434ux43eux43cux430ux448ux43dux435ux435-ux437ux430ux434ux430ux43dux438ux435-3}
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\textwidth,height=\textheight]{image/fig024.png}
+
+}
+
+\caption{Команда dmesg \textbar{} less (2)}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{3.4 Домашнее задание}
+\phantomsection\label{ux434ux43eux43cux430ux448ux43dux435ux435-ux437ux430ux434ux430ux43dux438ux435-4}
+Далее получаем следующую информацию:
+
+\begin{enumerate}[<+->]
+\tightlist
+\item
+  Версия ядра Linux (Linux version) (рис. 22)
+\item
+  Частота процессора (Detected Mhz processor) (рис. 23)
+\item
+  Модель процессора (CPU0) (рис. 24)
+\item
+  Объем доступной оперативной памяти (Memory available) (рис. 25)
+\item
+  Тип обнаруженного гипервизора (Hypervisor detected) (рис. 26)
+\item
+  Тип файловой системы корневого раздела (рис. 27)
+\item
+  Последовательность монтирования файловых систем (рис. 28)
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{3.5 Домашнее задание}
+\phantomsection\label{ux434ux43eux43cux430ux448ux43dux435ux435-ux437ux430ux434ux430ux43dux438ux435-5}
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\textwidth,height=\textheight]{image/fig025.png}
+
+}
+
+\caption{Версия ядра Linux}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{3.6 Домашнее задание}
+\phantomsection\label{ux434ux43eux43cux430ux448ux43dux435ux435-ux437ux430ux434ux430ux43dux438ux435-6}
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\textwidth,height=\textheight]{image/fig026.png}
+
+}
+
+\caption{Частота процессора}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{3.7 Домашнее задание}
+\phantomsection\label{ux434ux43eux43cux430ux448ux43dux435ux435-ux437ux430ux434ux430ux43dux438ux435-7}
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\textwidth,height=\textheight]{image/fig027.png}
+
+}
+
+\caption{Модель процессора}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{3.8 Домашнее задание}
+\phantomsection\label{ux434ux43eux43cux430ux448ux43dux435ux435-ux437ux430ux434ux430ux43dux438ux435-8}
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\textwidth,height=\textheight]{image/fig028.png}
+
+}
+
+\caption{Объем доступной оперативной памяти}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{3.9 Домашнее задание}
+\phantomsection\label{ux434ux43eux43cux430ux448ux43dux435ux435-ux437ux430ux434ux430ux43dux438ux435-9}
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\textwidth,height=\textheight]{image/fig029.png}
+
+}
+
+\caption{Тип обнаруженного гипервизора}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{3.10 Домашнее задание}
+\phantomsection\label{ux434ux43eux43cux430ux448ux43dux435ux435-ux437ux430ux434ux430ux43dux438ux435-10}
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\textwidth,height=\textheight]{image/fig030.png}
+
+}
+
+\caption{Тип файловой системы корневого раздела}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{3.11 Домашнее задание}
+\phantomsection\label{ux434ux43eux43cux430ux448ux43dux435ux435-ux437ux430ux434ux430ux43dux438ux435-11}
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\textwidth,height=\textheight]{image/fig031.png}
+
+}
+
+\caption{Последовательность монтирования файловых систем}
+
+\end{figure}%
+\end{frame}
+
+\section{4. Контрольные
+вопросы}\label{ux43aux43eux43dux442ux440ux43eux43bux44cux43dux44bux435-ux432ux43eux43fux440ux43eux441ux44b}
+
+\begin{frame}{4.1 Контрольные вопросы}
+\phantomsection\label{ux43aux43eux43dux442ux440ux43eux43bux44cux43dux44bux435-ux432ux43eux43fux440ux43eux441ux44b-1}
+\begin{enumerate}[<+->]
+\tightlist
+\item
+  \textbf{Какую информацию содержит учётная запись пользователя?}
+\end{enumerate}
+
+Учётная запись, как правило, содержит сведения, необходимые для
+опознания пользователя при подключении к системе, сведения для
+авторизации и учёта. Это идентификатор пользователя (login) и его
+пароль.
+\end{frame}
+
+\begin{frame}{4.2 Контрольные вопросы}
+\phantomsection\label{ux43aux43eux43dux442ux440ux43eux43bux44cux43dux44bux435-ux432ux43eux43fux440ux43eux441ux44b-2}
+\begin{enumerate}[<+->]
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \textbf{Укажите команды терминала и приведите примеры:}
+\end{enumerate}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  для получения справки по команде используют \emph{help}
+\item
+  для перемещения по файловой системе используют \emph{cd}
+\item
+  для просмотра содержимого каталога используют \emph{ls}
+\item
+  для определения объёма каталога используют \emph{du}
+\item
+  для создания/удаления каталогов используют \emph{mkdir/rmdir}, а для
+  файлов \emph{touch/rm}
+\item
+  для задания определённых прав на файл/каталог используют \emph{chmod}
+\item
+  для просмотра истории команд используют \emph{history}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{4.3 Контрольные вопросы}
+\phantomsection\label{ux43aux43eux43dux442ux440ux43eux43bux44cux43dux44bux435-ux432ux43eux43fux440ux43eux441ux44b-3}
+\begin{enumerate}[<+->]
+\setcounter{enumi}{2}
+\tightlist
+\item
+  \textbf{Что такое файловая система? Приведите примеры с краткой
+  характеристикой.}
+\end{enumerate}
+
+Файловая система (англ. file system) --- порядок, определяющий способ
+организации, хранения и именования данных во внешней памяти, и
+обеспечивающий пользователю удобный интерфейс при работе с такими
+данными.
+
+Примеры: - FAT --- классическая архитектура, используется для
+флеш-накопителей - NTFS --- стандартная файловая система для Windows NT
+- Ext4 --- журналируемая файловая система, используемая в Linux
+\end{frame}
+
+\begin{frame}{4.4 Контрольные вопросы}
+\phantomsection\label{ux43aux43eux43dux442ux440ux43eux43bux44cux43dux44bux435-ux432ux43eux43fux440ux43eux441ux44b-4}
+\begin{enumerate}[<+->]
+\setcounter{enumi}{3}
+\tightlist
+\item
+  \textbf{Как посмотреть, какие файловые системы подмонтированы в ОС?}
+\end{enumerate}
+
+Следует ввести команду \emph{df}.
+
+\begin{enumerate}[<+->]
+\setcounter{enumi}{4}
+\tightlist
+\item
+  \textbf{Как удалить зависший процесс?}
+\end{enumerate}
+
+Чтобы удалить зависший процесс, надо сначала узнать его PID с помощью
+команды \emph{ps}. А после этого ввести \emph{kill }.
+\end{frame}
+
+\section{5. Подведение
+итогов}\label{ux43fux43eux434ux432ux435ux434ux435ux43dux438ux435-ux438ux442ux43eux433ux43eux432}
+
+\begin{frame}{5.1 Выводы}
+\phantomsection\label{ux432ux44bux432ux43eux434ux44b}
+В ходе выполнения лабораторной работы мы приобрели практические навыки
+установки операционной системы на виртуальную машину, настройки
+минимально необходимых для дальнейшей работы сервисов.
+\end{frame}
+
+\begin{frame}{5.2 Список литературы}
+\phantomsection\label{ux441ux43fux438ux441ux43eux43a-ux43bux438ux442ux435ux440ux430ux442ux443ux440ux44b}
+\begin{enumerate}[<+->]
+\tightlist
+\item
+  Лабораторная работа №1 {[}Электронный ресурс{]} URL:
+  https://esystem.rudn.ru/pluginfile.php/2580975/mod\_folder/content/0/001-lab\_virtualbox.pdf
+\item
+  VirtualBox {[}Электронный ресурс{]} URL:
+  https://www.virtualbox.org/wiki/Linux\_Downloads
+\item
+  Rocky Linux {[}Электронный ресурс{]} URL:
+  https://rockylinux.org/ru-RU/download:::
+\end{enumerate}
+\end{frame}
+
+
+
+
+\end{document}
